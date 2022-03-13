@@ -3,11 +3,13 @@ import React, { useState } from "react";
 
 import { pushMessage } from "../firebase";
 
-const MessageField = ({ text, setText, name }) => {
+const MessageField = ({ inputEl, text, setText, name }) => {
   const [isComposed, setIsComposed] = useState(false);
   return (
     <TextField
+      autoFocus
       fullWidth={true}
+      inputRef={inputEl}
       onChange={(e) => {
         setText(e.target.value);
       }}
